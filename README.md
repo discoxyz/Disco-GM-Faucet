@@ -1,4 +1,4 @@
-# Disco Programmatic Issuance Demo 🕺🔮
+# Disco GM Faucet Demo 🕺🔮
 
 <!-- ### Check out the live demo 👉 [NextJS wagmi](https://nextjs-wagmi.vercel.app/) -->
 

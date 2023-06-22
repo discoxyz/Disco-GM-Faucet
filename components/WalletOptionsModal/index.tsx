@@ -35,7 +35,7 @@ export default function WalletOptionsModal(props: Props) {
             {connectData.connectors.map((c) => (
               <div key={c.id} className="mb-2 ml-2 mr-2 w-80">
                 <Button
-                  loading={connectDataLoading}
+                  loading={connectDataLoading || false}
                   width={80}
                   disabled={!c.ready}
                   onClick={() => connect(c)}

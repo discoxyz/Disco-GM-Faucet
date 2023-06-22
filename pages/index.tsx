@@ -17,13 +17,17 @@ const Home: NextPage = () => {
     return (
       <>
         <h1 className="mb-8 text-4xl font-bold">
-          Welcome to the Disco Programmatic Issuance Demo!
+          Welcome to the Disco GM Faucet! 🚰
         </h1> 
+        <h3> 
+          Click the button below to recieve a GM Credential in your data backpack.
+        </h3>
+
         <Button
           loading={accountLoading}
-          onClick={() => issueGmCredential(accountData?.address)}
+          onClick={() => issueGmCredential(accountData?.address || '')}
         >
-          Issue GM Credential!
+          Receive GM Credential!
         </Button>
       </>
     );
@@ -57,7 +61,7 @@ const issueGmCredential = async (recipient: string): Promise<void> => {
   try {
     console.log(`Issuing cred to: ${recipient}`);
     const credential = await issueCredential(schemaUrl, recipient, {});
-    console.log('Issued credential:', credential);
+    // console.log('Issued credential:', credential);
   } catch (error) {
     console.error('Failed to issue credential:', error);
   }
