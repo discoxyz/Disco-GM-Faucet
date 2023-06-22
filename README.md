@@ -1,42 +1,62 @@
-# Welcome to the NextJS wagmi starter template 👋
-Looking to get up and running with a Typescript / NextJS dApp as quickly as possible? You're in the right place! This repo serves as a minimal template for integrating the wagmi React hooks for Ethereum library with Typescript & NextJS. Due to its ease of customizability and extensibility, this template has been styled with the Tailwind CSS framework. Let's get to it!
-### Check out the live demo 👉 [NextJS wagmi](https://nextjs-wagmi.vercel.app/)
+# Disco Programmatic Issuance Demo 🕺🔮
 
-## Get up and running in 3 simple steps:
+<!-- ### Check out the live demo 👉 [NextJS wagmi](https://nextjs-wagmi.vercel.app/) -->
 
-### 1. Create an app using this repo as the template
-```bash
-npx create-next-app@latest -e https://github.com/Seth-McKilla/nextjs-wagmi
+## Overview
+This demo showcases the process of programmatic issuance to a Disco Data Backpack via an Ethereum (ETH) address using Next, React, and Tailwinds CSS.
+
+Users can connect their wallet and click a button to receive a GM Verifiable Credential issued by Disco. 
+
+
+## How to use this template
+
+### 1. Clone this app
 ```
->Note: The above command automatically downloads and installs the dependencies so no "npm install" or "yarn add" required!
-
-### 2. Create a .env.local file within the root directory with the following environment variables
-```bash
-NEXT_PUBLIC_INFURA_ID=<insert infura id>
+git clone https://github.com/discoxyz/programmatic-issuance-demo.git
 ```
->Note: Grab an Infura ID from the [Infura website](https://infura.io/)
 
-### 3. Start the local development environment
+### 2. Install Dependencies
 ```bash
-npm run dev
-# or
+yarn install
+```
+
+### 3. Grab Disco API Key
+
+Self-service API keys are now available to profiles with organization credentials. Steps to generating a key are [here](https://disco.mirror.xyz/8AkcZERU2amKqb5cQj3GLoFDtxDm0uwi-Zp_m5_L5hM).
+
+Add this to .env.local:
+
+```bash
+DISCO_API_KEY=<insert api key>
+```
+
+### 4. Credential Issuance
+In index.ts, replace the following line with the schema URL of your choice. If there is metadata, pass in a `subjectData: {}` JSON object as the third argument to issueCredential.
+
+```javascript
+55 const schemaUrl = 'https://raw.githubusercontent.com/discoxyz/disco-schemas/main/json/GMCredential/1-0-0.json';
+```
+All schemas can be found here: https://github.com/discoxyz/disco-schemas.
+
+In `discoClient.js`, we are making the request to the Disco API, feel free to modify the request/response logic here.
+
+### 5. Start the local development environment
+```bash
 yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-That's it, you're all set!
+Connect Wallet, and Click Issue GM Credential! Go to [app.disco.xyz](app.disco.xyz) to see the credential in your inbox, almost instantaneously.
 
 ## Resources
-To learn more about the packages used in this project, take a look at the following resources:
 
+- [Learn about Disco](https://docs.disco.xyz) - all things Disco!
+- [Disco API reference](https://docs.disco.xyz/v2/for-developers/get-started-with-discos-api/) - Disco API Reference
+- [Disco Bounties and References ](https://docs.disco.xyz/v2/for-developers/bounties-and-examples) - Bounties and Reference Apps
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [React Typescript Cheatsheet](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup/) - helpful tips for using Typescript with React.
-- [wagmi Documentation](https://wagmi-xyz.vercel.app/) - learn about the wagmi React hooks for Ethereum.
-- [Tailwind CSS Documentation](https://tailwindcss.com/) - learn about the Tailwind CSS styling framework.
 
-## Deploy on Vercel
+<!-- UP NEXT!! ## Deploy on Vercel
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FSeth-McKilla%2Fnextjs-wagmi&env=NEXT_PUBLIC_INFURA_ID)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js. --> 

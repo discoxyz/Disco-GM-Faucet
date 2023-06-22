@@ -1,6 +1,5 @@
 export const issueCredential = async (schemaUrl, ethAddress, subjectData) => {
-    const apiKey = '3e7d11c4-787b-4194-a53c-98e239ac3372'; // Replace with your env variable
-  
+    const apiKey = process.env.DISCO_API_KEY;  
     const requestUrl = 'https://api.disco.xyz/v1/credential';
 
     const requestBody = JSON.stringify({
