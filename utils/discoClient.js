@@ -25,10 +25,13 @@ export const issueCredential = async (schemaUrl, ethAddress, subjectData) => {
   
       const credential = await response.json();
       console.log('Issued credential:', credential);
+
       return credential;
     } catch (error) {
       console.error('Failed to issue credential:', error);
       throw error;
     }
   };
+
+
   

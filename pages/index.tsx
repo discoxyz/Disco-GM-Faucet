@@ -3,6 +3,8 @@ import type { NextPage } from "next";
 import { useAccount, useBalance } from "wagmi";
 import { Button, Layout, Loader, WalletOptionsModal } from "../components";
 import { issueCredential } from "../utils/discoClient";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home: NextPage = () => {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
@@ -48,6 +50,8 @@ const Home: NextPage = () => {
           <div className="grid place-items-center">{renderContent()}</div>
         </div>
       </Layout>
+
+      <ToastContainer />
     </>
   );
 };
@@ -62,7 +66,26 @@ const issueGmCredential = async (recipient: string): Promise<void> => {
     console.log(`Issuing cred to: ${recipient}`);
     const credential = await issueCredential(schemaUrl, recipient, {});
     // console.log('Issued credential:', credential);
+    if (credential) { 
+      displayToast();
+    }
+
   } catch (error) {
     console.error('Failed to issue credential:', error);
   }
 };
+
+const displayToast = () => {
+  toast.info(
+    <div>
+      Credential issued successfully! Visit your data backpack {''}
+      <a href="https://app.disco.xyz" className="text-blue-500">
+        here
+      </a>{' '}
+      to see it.
+    </div>,
+    {
+      autoClose: 10000, // Duration in milliseconds (10 seconds)
+    }
+  );
+}
