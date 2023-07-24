@@ -20,9 +20,14 @@ const Home: NextPage = () => {
       <>
         <h1 className="mb-8 text-4xl font-bold">
           Welcome to the Disco GM Faucet! 🚰
-        </h1> 
-        <h3> 
-          Click the button below to recieve a GM Credential in your data backpack.
+        </h1>
+
+        <h2 className="mb-8 text-xl"> (What is happening?) </h2>
+
+        <h3 className="mx-32 mb-7"> 
+          This demo app uses the Disco API to trigger <strong> Programmatic Issuance, </strong> issuing a Verifiable Credential to a connected wallet address with one POST request, instead of using the web interface.
+          You will then be able to receive the GM credential instantly in your inbox.
+          Click the button below to test it out!
         </h3>
 
         <Button
